@@ -10,9 +10,10 @@ import {
 import { WagmiConfig } from "wagmi";
 import { Account } from "./components/Account.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
+import { SignIn } from "./components/SignIn.jsx";
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
-import {config}from './wagmi.js'
+import { config } from "./wagmi.js";
 
 export default function App() {
   const [accounts, setAccounts] = useState([]);
@@ -42,7 +43,7 @@ export default function App() {
   }, [accounts]);
 
   return (
-     <WagmiConfig config={config}>
+    <WagmiConfig config={config}>
       <Navbar color="black">
         <NavbarBrand>
           <NavbarItem>Web3FA</NavbarItem>
@@ -50,6 +51,10 @@ export default function App() {
       </Navbar>
 
       <Container maxWidth="desktop">
+        <Section>
+          <SignIn />
+        </Section>
+
         <Section>
           <MasterPassword setMasterPassword={setMasterPassword} />
         </Section>
@@ -67,7 +72,6 @@ export default function App() {
             <AddAccount setAccounts={setAccounts} />
           </Section>
         )}
-
       </Container>
     </WagmiConfig>
   );

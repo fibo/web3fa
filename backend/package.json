@@ -1,0 +1,15 @@
+{
+  "name": "@web3fa/backend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "siwe": "^2.1.4",
+    "cors": "^2.8.5",
+    "ethers": "^6.3.0",
+    "express": "^4.18.2"
+  }
+}

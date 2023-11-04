@@ -9,7 +9,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     mainnet,
     ...(import.meta.env?.MODE === "development" ? [goerli, foundry] : []),
   ],
-  [publicProvider()]
+  [publicProvider()],
 );
 
 export const config = createConfig({
@@ -19,7 +19,7 @@ export const config = createConfig({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: "Web3FA"
+        appName: "Web3FA",
       },
     }),
   ],

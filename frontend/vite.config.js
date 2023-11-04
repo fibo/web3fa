@@ -4,10 +4,10 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-       global: "globalThis",
-     },
+    global: "globalThis",
+  },
   plugins: [react()],
-    resolve: {
+  resolve: {
     alias: {
       process: "process/browser",
       util: "util",

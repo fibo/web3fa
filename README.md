@@ -4,12 +4,10 @@
 
 ## Demo
 
-To run webapp locally, do
+To run demo locally, install deps (only once): `npm install`.
 
-```sh
-npm install
-npm start
-```
+1. launch backend: `npm run backend`
+2. launch frontend: `npm run frontend`, then point your browser to http://localhost:8000
 
 ## References
 
