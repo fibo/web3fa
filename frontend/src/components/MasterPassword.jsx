@@ -22,7 +22,7 @@ export function MasterPassword({ setMasterPassword }) {
     const { password } = formValues(event, fields);
     setMasterPassword(password);
     event.target.reset();
-  }, []);
+  }, [setMasterPassword]);
 
   return (
     <Form onSubmit={onSubmit}>

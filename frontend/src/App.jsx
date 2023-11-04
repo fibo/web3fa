@@ -11,6 +11,7 @@ import { WagmiConfig } from "wagmi";
 import { Account } from "./components/Account.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
 
+import { Connect } from "./components/Connect.jsx";
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
 import { config } from "./wagmi.js";
@@ -53,6 +54,10 @@ export default function App() {
       <Container maxWidth="desktop">
         <Section>
           <MasterPassword setMasterPassword={setMasterPassword} />
+        </Section>
+
+        <Section>
+          <Connect />
         </Section>
 
         <Section>

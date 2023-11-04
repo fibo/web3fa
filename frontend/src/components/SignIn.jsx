@@ -55,7 +55,7 @@ export function SignIn({ onSuccess }) {
     } catch (error) {
       console.error(error);
     }
-  }, [chainId, nonce]);
+  }, [address, chainId, nonce, onSuccess, signMessageAsync]);
 
   useEffect(() => {
     fetchNonce();
