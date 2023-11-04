@@ -7,12 +7,15 @@ import {
   NavbarItem,
   Section,
 } from "trunx";
+import { WagmiConfig } from "wagmi";
 import { Account } from "./components/Account.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
+
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
+import { config } from "./wagmi.js";
 
-function App() {
+export default function App() {
   const [accounts, setAccounts] = useState([]);
   const [masterPassword, setMasterPassword] = useState("");
 
@@ -37,10 +40,10 @@ function App() {
         localStorage.setItem("accounts", encryptedData);
       },
     );
-  }, [accounts]);
+  }, [accounts, masterPassword]);
 
   return (
-    <>
+    <WagmiConfig config={config}>
       <Navbar color="black">
         <NavbarBrand>
           <NavbarItem>Web3FA</NavbarItem>
@@ -52,12 +55,6 @@ function App() {
           <MasterPassword setMasterPassword={setMasterPassword} />
         </Section>
 
-        {masterPassword && (
-          <Section>
-            <AddAccount setAccounts={setAccounts} />
-          </Section>
-        )}
-
         <Section>
           <Columns isMultiline>
             {accounts.map(({ name, secret, url }, i) => (
@@ -65,9 +62,13 @@ function App() {
             ))}
           </Columns>
         </Section>
+
+        {masterPassword && (
+          <Section>
+            <AddAccount setAccounts={setAccounts} />
+          </Section>
+        )}
       </Container>
-    </>
+    </WagmiConfig>
   );
 }
-
-export default App;
