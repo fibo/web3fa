@@ -1,5 +1,13 @@
-import { useEffect, useState } from "react";
-import { Container, Navbar, NavbarBrand, NavbarItem, Section } from "trunx";
+import { useCallback, useEffect, useState } from "react";
+import {
+  Button,
+  Buttons,
+  Container,
+  Navbar,
+  NavbarBrand,
+  NavbarItem,
+  Section,
+} from "trunx";
 import { WagmiConfig } from "wagmi";
 import { Accounts } from "./components/Accounts.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
@@ -12,6 +20,12 @@ import { config } from "./wagmi.js";
 export default function App() {
   const [accounts, setAccounts] = useState([]);
   const [masterPassword, setMasterPassword] = useState("");
+  const [showAddAccount, setShowAddAccount] = useState(false);
+  const [showMasterPassword, setShowMasterPassword] = useState(true);
+
+  const onClickAddNew = useCallback(() => {
+    setShowAddAccount(true);
+  }, []);
 
   useEffect(() => {
     if (!masterPassword) return;
@@ -44,25 +58,56 @@ export default function App() {
         </NavbarBrand>
       </Navbar>
 
-      <Container maxWidth="desktop">
-        <Section>
-          <MasterPassword setMasterPassword={setMasterPassword} />
-        </Section>
+      <div className="page">
+        <Container maxWidth="desktop">
+          {showMasterPassword && (
+            <Section>
+              <MasterPassword
+                setMasterPassword={setMasterPassword}
+                setShowMasterPassword={setShowMasterPassword}
+              />
+            </Section>
+          )}
 
-        <Section>
-          <Connect />
-        </Section>
-
-        <Section>
-          <Accounts accounts={accounts} />
-        </Section>
-
-        {masterPassword && (
           <Section>
-            <AddAccount setAccounts={setAccounts} />
+            <Connect />
           </Section>
-        )}
-      </Container>
+
+          <Section>
+            <Accounts accounts={accounts} />
+          </Section>
+
+          {showAddAccount && (
+            <Section>
+              <AddAccount
+                setAccounts={setAccounts}
+                setShowAddAccount={setShowAddAccount}
+              />
+            </Section>
+          )}
+
+          {showMasterPassword || showAddAccount || (
+            <Buttons>
+              <Button
+                onClick={onClickAddNew}
+                color="primary"
+                isRounded
+                className="is-fullwidth"
+              >
+                Add new
+              </Button>
+            </Buttons>
+          )}
+        </Container>
+      </div>
+
+      <footer className="footer">
+        <b>Web3FA</b>
+        <p>
+          A decentralized solution to store and access your 2FA codes on-chain -
+          private and secure
+        </p>
+      </footer>
     </WagmiConfig>
   );
 }

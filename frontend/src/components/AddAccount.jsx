@@ -18,7 +18,15 @@ const fieldName = {
 
 const fields = Object.keys(fieldName);
 
-export function AddAccount({ setAccounts }) {
+export function AddAccount({ setAccounts, setShowAddAccount }) {
+  const onReset = useCallback(
+    (event) => {
+      event.preventDefault();
+      setShowAddAccount(false);
+    },
+    [setShowAddAccount],
+  );
+
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
@@ -30,7 +38,7 @@ export function AddAccount({ setAccounts }) {
   );
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} onReset={onReset}>
       <Field>
         <Label htmlFor={fieldName.name}>Name</Label>
 
@@ -64,8 +72,12 @@ export function AddAccount({ setAccounts }) {
           />
         </Control>
       </Field>
+
       <Buttons>
-        <Button>Add account</Button>
+        <Button color="primary" type="submit">
+          Add
+        </Button>
+        <Button type="reset">Cancel</Button>
       </Buttons>
     </Form>
   );

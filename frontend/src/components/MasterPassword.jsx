@@ -16,15 +16,16 @@ const fieldName = {
 
 const fields = Object.keys(fieldName);
 
-export function MasterPassword({ setMasterPassword }) {
+export function MasterPassword({ setMasterPassword, setShowMasterPassword }) {
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
       const { password } = formValues(event, fields);
       setMasterPassword(password);
       event.target.reset();
+      setShowMasterPassword(false);
     },
-    [setMasterPassword],
+    [setMasterPassword, setShowMasterPassword],
   );
 
   return (
