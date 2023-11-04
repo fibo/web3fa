@@ -10,7 +10,7 @@ import {
 import { WagmiConfig } from "wagmi";
 import { Account } from "./components/Account.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
-import { SignIn } from "./components/SignIn.jsx";
+
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
 import { config } from "./wagmi.js";
@@ -40,7 +40,7 @@ export default function App() {
         localStorage.setItem("accounts", encryptedData);
       },
     );
-  }, [accounts]);
+  }, [accounts, masterPassword]);
 
   return (
     <WagmiConfig config={config}>
@@ -51,10 +51,6 @@ export default function App() {
       </Navbar>
 
       <Container maxWidth="desktop">
-        <Section>
-          <SignIn />
-        </Section>
-
         <Section>
           <MasterPassword setMasterPassword={setMasterPassword} />
         </Section>
