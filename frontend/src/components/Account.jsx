@@ -26,7 +26,7 @@ export function Account({ name, secret, url }) {
         <Title>{name}</Title>
         <p>{url}</p>
         <p>{oneTimePassword}</p>
-        <Progress value={numSeconds} max={30} />
+        <Progress size="small" value={numSeconds} max={30} />
       </Box>
     </Column>
   );
