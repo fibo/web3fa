@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Columns,
   Container,
   Navbar,
   NavbarBrand,
@@ -8,7 +7,7 @@ import {
   Section,
 } from "trunx";
 import { WagmiConfig } from "wagmi";
-import { Account } from "./components/Account.jsx";
+import { Accounts } from "./components/Accounts.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
 
 import { Connect } from "./components/Connect.jsx";
@@ -61,11 +60,7 @@ export default function App() {
         </Section>
 
         <Section>
-          <Columns isMultiline>
-            {accounts.map(({ name, secret, url }, i) => (
-              <Account key={i} name={name} secret={secret} url={url} />
-            ))}
-          </Columns>
+    <Accounts accounts={accounts} />
         </Section>
 
         {masterPassword && (
