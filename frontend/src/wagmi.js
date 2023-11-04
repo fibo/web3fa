@@ -12,11 +12,19 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()],
 );
 
+const zkEVM = {
+  id: 1442,
+  name: "Polygon zkEVM",
+  rpcUrls: {
+    public: [{http: 'rpc.public.zkevm-test.net'}]
+  }
+}
+
 export const config = createConfig({
   autoConnect: true,
   connectors: [
     new CoinbaseWalletConnector({
-      chains,
+      chains: [...chains,zkEVM],
       options: {
         appName: "Web3FA",
       },
