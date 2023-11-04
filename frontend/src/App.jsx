@@ -73,9 +73,11 @@ export default function App() {
             <Connect />
           </Section>
 
+    {masterPassword && (
           <Section>
-            <Accounts accounts={accounts} />
+            <Accounts masterPassword={masterPassword} />
           </Section>
+    )}
 
           {showAddAccount && (
             <Section>
