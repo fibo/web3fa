@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const computeNumSeconds = () => 30 - (Math.floor(Date.now() / 1000) % 30);
 
-export function Account({ name, secret }) {
+export function Account({ name, secret, url }) {
   const [oneTimePassword, setOneTimePassword] = useState("");
   const [numSeconds, setNumSeconds] = useState(computeNumSeconds());
 
@@ -23,7 +23,8 @@ export function Account({ name, secret }) {
   return (
     <Column size="one-third">
       <Box>
-        <Title> {name} </Title>
+        <Title>{name}</Title>
+        <p>{url}</p>
         <p>{oneTimePassword}</p>
         <Progress value={numSeconds} max={30} />
       </Box>

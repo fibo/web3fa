@@ -13,6 +13,7 @@ import {
 const fieldName = {
   name: "name",
   secret: "secret",
+  url: "url",
 };
 
 const fields = Object.keys(fieldName);
@@ -21,8 +22,8 @@ export function AddAccount({ setAccounts }) {
   const onSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      const { name, secret } = formValues(event, fields);
-      setAccounts((accounts) => [...accounts, { name, secret }]);
+      const { name, secret, url = "" } = formValues(event, fields);
+      setAccounts((accounts) => [...accounts, { name, secret, url }]);
       event.target.reset();
     },
     [setAccounts],
@@ -40,6 +41,14 @@ export function AddAccount({ setAccounts }) {
             type="text"
             name={fieldName.name}
           />
+        </Control>
+      </Field>
+
+      <Field>
+        <Label htmlFor={fieldName.name}>URL</Label>
+
+        <Control>
+          <Input id={fieldName.url} type="text" name={fieldName.url} />
         </Control>
       </Field>
 
