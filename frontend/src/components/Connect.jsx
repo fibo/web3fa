@@ -1,11 +1,8 @@
 import { Button, Buttons } from "trunx";
-import { useAccount, useConnect } from "wagmi";
+import { useConnect } from "wagmi";
 
 export function Connect() {
-  const { isConnected } = useAccount();
   const { connect, connectors, isLoading, pendingConnector } = useConnect();
-
-  if (isConnected) return null;
 
   return (
     <Buttons>

@@ -1,23 +1,24 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   Button,
-  Buttons,
+  Column,
+  Columns,
   Container,
   Navbar,
   NavbarBrand,
   NavbarItem,
   Section,
 } from "trunx";
-import { WagmiConfig } from "wagmi";
+import {  useAccount } from "wagmi";
 import { Accounts } from "./components/Accounts.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
 
 import { Connect } from "./components/Connect.jsx";
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
-import { config } from "./wagmi.js";
 
 export default function App() {
+  const {isConnected } = useAccount();
   const [accounts, setAccounts] = useState([]);
   const [masterPassword, setMasterPassword] = useState("");
   const [showAddAccount, setShowAddAccount] = useState(false);
@@ -51,7 +52,7 @@ export default function App() {
   }, [accounts, masterPassword]);
 
   return (
-    <WagmiConfig config={config}>
+    <>
       <Navbar color="black">
         <NavbarBrand>
           <NavbarItem>Web3FA</NavbarItem>
@@ -60,7 +61,7 @@ export default function App() {
 
       <div className="page">
         <Container maxWidth="desktop">
-          {showMasterPassword && (
+          {isConnected && showMasterPassword && (
             <Section>
               <MasterPassword
                 setMasterPassword={setMasterPassword}
@@ -69,9 +70,11 @@ export default function App() {
             </Section>
           )}
 
+    {isConnected||(
           <Section>
             <Connect />
           </Section>
+          )}
 
     {masterPassword && (
           <Section>
@@ -89,7 +92,10 @@ export default function App() {
           )}
 
           {showMasterPassword || showAddAccount || (
-            <Buttons>
+            <Columns isMobile>
+            <Column />
+
+            <Column size='half' >
               <Button
                 onClick={onClickAddNew}
                 color="primary"
@@ -98,7 +104,10 @@ export default function App() {
               >
                 Add new
               </Button>
-            </Buttons>
+            </Column>
+
+            <Column/>
+            </Columns>
           )}
         </Container>
       </div>
@@ -110,6 +119,6 @@ export default function App() {
           private and secure
         </p>
       </footer>
-    </WagmiConfig>
+    </>
   );
 }
