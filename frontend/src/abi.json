@@ -2,26 +2,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "delegate",
-				"type": "address"
-			}
-		],
-		"name": "delegateAccess",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "revokeAccess",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "string",
 				"name": "newString",
 				"type": "string"
