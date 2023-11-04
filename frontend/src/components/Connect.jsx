@@ -3,8 +3,7 @@ import { useAccount, useConnect } from "wagmi";
 
 export function Connect() {
   const { isConnected } = useAccount();
-  const { connect, connectors,  isLoading, pendingConnector } =
-    useConnect();
+  const { connect, connectors, isLoading, pendingConnector } = useConnect();
 
   if (isConnected) return null;
 

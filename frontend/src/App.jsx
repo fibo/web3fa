@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Container,
-  Navbar,
-  NavbarBrand,
-  NavbarItem,
-  Section,
-} from "trunx";
+import { Container, Navbar, NavbarBrand, NavbarItem, Section } from "trunx";
 import { WagmiConfig } from "wagmi";
 import { Accounts } from "./components/Accounts.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
@@ -60,7 +54,7 @@ export default function App() {
         </Section>
 
         <Section>
-    <Accounts accounts={accounts} />
+          <Accounts accounts={accounts} />
         </Section>
 
         {masterPassword && (

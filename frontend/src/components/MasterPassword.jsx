@@ -17,12 +17,15 @@ const fieldName = {
 const fields = Object.keys(fieldName);
 
 export function MasterPassword({ setMasterPassword }) {
-  const onSubmit = useCallback((event) => {
-    event.preventDefault();
-    const { password } = formValues(event, fields);
-    setMasterPassword(password);
-    event.target.reset();
-  }, [setMasterPassword]);
+  const onSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      const { password } = formValues(event, fields);
+      setMasterPassword(password);
+      event.target.reset();
+    },
+    [setMasterPassword],
+  );
 
   return (
     <Form onSubmit={onSubmit}>

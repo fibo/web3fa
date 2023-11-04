@@ -1,7 +1,7 @@
 import { configureChains, createConfig } from "wagmi";
 import { foundry, goerli, mainnet } from "wagmi/chains";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
-import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
+import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -24,7 +24,7 @@ export const config = createConfig({
     new WalletConnectConnector({
       chains,
       options: {
-        projectId: 'fcb2652ead1b7424112906ea52e95e31'
+        projectId: "fcb2652ead1b7424112906ea52e95e31",
       },
     }),
   ],
