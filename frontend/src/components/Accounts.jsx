@@ -4,8 +4,6 @@ import { contractAddress } from "../contractAddress.js";
 import { Account } from "./Account.jsx";
 import { useContractRead } from "wagmi";
 
-console.log(abi);
-
 export function Accounts({ accounts }) {
   const { data, isError, isLoading } = useContractRead({
     address: contractAddress,
