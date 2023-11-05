@@ -4,12 +4,17 @@ import {
   Column,
   Columns,
   Container,
+  Flex,
+  Hero,
   Navbar,
   NavbarBrand,
+  NavbarBurger,
   NavbarItem,
   Section,
+  Title,
+  bulma,
 } from "trunx";
-import {  useAccount } from "wagmi";
+import { useAccount } from "wagmi";
 import { Accounts } from "./components/Accounts.jsx";
 import { AddAccount } from "./components/AddAccount.jsx";
 
@@ -18,7 +23,7 @@ import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
 
 export default function App() {
-  const {isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const [accounts, setAccounts] = useState([]);
   const [masterPassword, setMasterPassword] = useState("");
   const [showAddAccount, setShowAddAccount] = useState(false);
@@ -53,11 +58,36 @@ export default function App() {
 
   return (
     <>
-      <Navbar color="black">
-        <NavbarBrand>
-          <NavbarItem>Web3FA</NavbarItem>
-        </NavbarBrand>
-      </Navbar>
+      {isConnected && (
+        <Navbar>
+          <NavbarBrand>
+            <NavbarItem className={bulma("has-text-weight-bold")}>
+              <NavbarBurger></NavbarBurger>
+              <img
+                width="50"
+                src="/logo.svg"
+                className=".Navbar__logo"
+                alt=""
+              />
+              <span>Web3FA</span>
+            </NavbarItem>
+          </NavbarBrand>
+        </Navbar>
+      )}
+
+      {isConnected || (
+        <Hero color="primary" size="large">
+          <Flex direction="column" alignItems="center">
+            <img width="75" src="/logo.svg" alt="" />
+
+            <Title size="2" className={bulma("has-text-weight-bold")}>
+              Web3FA
+            </Title>
+
+            <p>Two-factor - secure, decentralized</p>
+          </Flex>
+        </Hero>
+      )}
 
       <div className="page">
         <Container maxWidth="desktop">
@@ -70,17 +100,17 @@ export default function App() {
             </Section>
           )}
 
-    {isConnected||(
-          <Section>
-            <Connect />
-          </Section>
+          {isConnected || (
+            <Section>
+              <Connect />
+            </Section>
           )}
 
-    {masterPassword && (
-          <Section>
-            <Accounts masterPassword={masterPassword} />
-          </Section>
-    )}
+          {masterPassword && !showAddAccount && (
+            <Section>
+              <Accounts masterPassword={masterPassword} />
+            </Section>
+          )}
 
           {showAddAccount && (
             <Section>
@@ -93,32 +123,34 @@ export default function App() {
 
           {showMasterPassword || showAddAccount || (
             <Columns isMobile>
-            <Column />
+              <Column />
 
-            <Column size='half' >
-              <Button
-                onClick={onClickAddNew}
-                color="primary"
-                isRounded
-                className="is-fullwidth"
-              >
-                Add new
-              </Button>
-            </Column>
+              <Column size="half">
+                <Button
+                  onClick={onClickAddNew}
+                  color="primary"
+                  isRounded
+                  className="is-fullwidth has-text-weight-semibold"
+                >
+                  Add new
+                </Button>
+              </Column>
 
-            <Column/>
+              <Column />
             </Columns>
           )}
         </Container>
       </div>
 
-      <footer className="footer">
-        <b>Web3FA</b>
-        <p>
-          A decentralized solution to store and access your 2FA codes on-chain -
-          private and secure
-        </p>
-      </footer>
+      {isConnected && (
+        <footer className="footer">
+          <b>Web3FA</b>
+          <p>
+            A decentralized solution to store and access your 2FA codes on-chain
+            - private and secure
+          </p>
+        </footer>
+      )}
     </>
   );
 }

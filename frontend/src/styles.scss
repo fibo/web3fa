@@ -21,3 +21,42 @@ body,
 
 @import "bulma/bulma";
 
+.countdown {
+  position: relative;
+  margin: auto;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+}
+
+.countdown > svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+.countdown > svg > circle {
+  stroke-dasharray: 80px;
+  // stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 5px;
+  stroke: #6a45be;
+  fill: none;
+  // animation: countdown 15s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 5px;
+  }
+  to {
+    stroke-dashoffset: 80px;
+  }
+}
+
+.Navbar__logo {
+  border-radius: 50%;
+}

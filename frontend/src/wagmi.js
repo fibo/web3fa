@@ -7,7 +7,9 @@ import { publicProvider } from "wagmi/providers/public";
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
     mainnet,
-    ...(import.meta.env?.MODE === "development" ? [goerli, foundry, polygonZkEvmTestnet] : []),
+    ...(import.meta.env?.MODE === "development"
+      ? [goerli, foundry, polygonZkEvmTestnet]
+      : []),
   ],
   [publicProvider()],
 );

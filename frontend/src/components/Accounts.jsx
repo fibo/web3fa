@@ -6,31 +6,31 @@ import { Account } from "./Account.jsx";
 import { decryptData } from "../crypto.js";
 import { useAccount, useContractRead } from "wagmi";
 
-export function Accounts({masterPassword}) {
-  const {address: account } = useAccount();
-  const [accounts, setAccounts] = useState([])
-  console.log('account',account)
+export function Accounts({ masterPassword }) {
+  const { address: account } = useAccount();
+  const [accounts, setAccounts] = useState([]);
+  console.log("account", account);
 
   const { data, isError, isLoading } = useContractRead({
-    address: account? contractAddress: undefined,
+    address: account ? contractAddress : undefined,
     abi,
     functionName: "read",
     args: [account],
-    account
+    account,
   });
   console.log(isError, isLoading, data);
 
   useEffect(() => {
-    if (!masterPassword) return
-    if (!data) return
+    if (!masterPassword) return;
+    if (!data) return;
     decryptData(data, masterPassword).then((decryptedData) => {
       try {
-        setAccounts( JSON.parse(decryptedData))
+        setAccounts(JSON.parse(decryptedData));
       } catch (error) {
         console.error(error);
       }
     });
-  }, [data, masterPassword])
+  }, [data, masterPassword]);
 
   return (
     <Columns isMultiline>

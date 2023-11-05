@@ -8,7 +8,7 @@ import "./styles.scss";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <WagmiConfig config={config}>
-    <App />
+      <App />
     </WagmiConfig>
   </React.StrictMode>,
 );
