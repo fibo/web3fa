@@ -3,6 +3,8 @@
 
 By using blockchains as distributed storage for encrypted secrets, Web3FA allows you to access your multi-factor tokens from any device – just by connecting with your wallet.
 
+<img width="2300" alt="Promo Banner" src="https://github.com/fibo/web3fa/assets/2742107/b1af362c-9152-4a07-bf16-f2f8cfe0e377">
+
 ## Demo
 
 To run demo locally, install deps (only once): `npm install`.
