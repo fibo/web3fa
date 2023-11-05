@@ -13,3 +13,6 @@ To run demo locally, install deps (only once): `npm install`.
 ## References
 
 [ERC-5630: New approach for encryption / decryption](https://eips.ethereum.org/EIPS/eip-5630)
+
+### Flowchart
+![Web3FA flowchart](https://github.com/fibo/web3fa/assets/2742107/664654ed-58c3-4c35-ab14-51359fcc52db)
