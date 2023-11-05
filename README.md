@@ -1,6 +1,7 @@
 # Web3FA
+> decentralized multi-factor authenticator app 
 
-> decentralized multi-factor authentication
+By using blockchains as distributed storage for encrypted secrets, Web3FA allows you to access your multi-factor tokens from any device – just by connecting with your wallet.
 
 ## Demo
 
