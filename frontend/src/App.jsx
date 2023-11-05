@@ -33,18 +33,18 @@ export default function App() {
     setShowAddAccount(true);
   }, []);
 
-  useEffect(() => {
-    if (!masterPassword) return;
-    const encryptedAccounts = localStorage.getItem("accounts");
-    if (!encryptedAccounts) return;
-    decryptData(encryptedAccounts, masterPassword).then((decryptedData) => {
-      try {
-        setAccounts(JSON.parse(decryptedData));
-      } catch (error) {
-        console.error(error);
-      }
-    });
-  }, [masterPassword]);
+  // useEffect(() => {
+  //   if (!masterPassword) return;
+  //   const encryptedAccounts = localStorage.getItem("accounts");
+  //   if (!encryptedAccounts) return;
+  //   decryptData(encryptedAccounts, masterPassword).then((decryptedData) => {
+  //     try {
+  //       setAccounts(JSON.parse(decryptedData));
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   });
+  // }, [masterPassword]);
 
   useEffect(() => {
     if (!masterPassword) return;
