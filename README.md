@@ -29,6 +29,12 @@ Symmetric encryption for 2FA secrets: [crypto.js](./frontend/src/crypto.js)
 
 ![Web3FA flowchart](https://github.com/fibo/web3fa/assets/2742107/664654ed-58c3-4c35-ab14-51359fcc52db)
 
+### Gnosis references
+Contract address on Chiado: [0x07AE6263be3C8a9C129Fb2Fd166C3dA1DcAd1046](https://gnosisscan.io/address/0x07AE6263be3C8a9C129Fb2Fd166C3dA1DcAd1046)
+
+Twitter link of Gnosis [tag](https://twitter.com/NenaRapsody/status/1721115592780808247?t=CKvQ27i2zFs7BhKE-STAEA&s=19)
+
+
 ### Contributors
 [github.com/fibo](https://github.com/fibo)
 
