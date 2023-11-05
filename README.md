@@ -1,6 +1,9 @@
 # Web3FA
 
-> decentralized multi-factor authenticator app
+> Decentralized multi-factor authenticator app
+
+
+This project was developed during [EthLisbon 2023](https://ethlisbon.org/) (3 - 5 November 2023)
 
 By using blockchains as distributed storage for encrypted secrets, Web3FA allows you to access your multi-factor tokens from any device – just by connecting with your wallet.
 
@@ -25,3 +28,10 @@ Symmetric encryption for 2FA secrets: [crypto.js](./frontend/src/crypto.js)
 ### Flowchart
 
 ![Web3FA flowchart](https://github.com/fibo/web3fa/assets/2742107/664654ed-58c3-4c35-ab14-51359fcc52db)
+
+### Contributors
+[github.com/fibo](https://github.com/fibo)
+
+[github.com/IreneBa26](https://github.com/IreneBa26)
+
+[github.com/pyramus](https://github.com/pyramus)
