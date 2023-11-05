@@ -15,6 +15,7 @@ Launch frontend: `npm run frontend`, then point your browser to http://localhost
 ## Relevant code
 
 Generates the 2FA _one time password_: [get2FA.js](./frontend/src/get2FA.js)
+
 Symmetric encryption for 2FA secrets: [crypto.js](./frontend/src/crypto.js)
 
 ## References
