@@ -4,7 +4,9 @@ import abi from "../abi.json";
 import { contractAddress } from "../contractAddress.js";
 import { Account } from "./Account.jsx";
 import { decryptData } from "../crypto.js";
-import { useAccount, useContractRead } from "wagmi";
+import { useAccount, useContractRead, useContractWrite } from "wagmi";
+
+const testData = '7ikcj6WFhtFn8DKqxR6QUbitEbWktQooBQjbHu7kubxsHFL1x3V5nwph3V4OwXmYWHsSEmQItWkd1yC52wB5xAeB0CvcheVHbDYX13iGmHV0qp8LEXCUwkOT17zwhd3OrTvqcHY='
 
 export function Accounts({ masterPassword }) {
   const { address: account } = useAccount();
@@ -20,6 +22,23 @@ export function Accounts({ masterPassword }) {
   });
   console.log(isError, isLoading, data);
 
+  const { write } = useContractWrite({
+    address: account ? contractAddress : undefined,
+    abi,
+    functionName: "write",
+    account,
+  });
+
+  // useEffect(() => {
+  //   console.log('xxxxxxxxxxxxxxx write')
+  //   write({
+  //     args: [testData],
+  //     from: account,
+  //     // value: parseEther('0.01'),
+  //   })
+  // }, [write])
+
+  console.log(isError, isLoading, data);
   useEffect(() => {
     if (!masterPassword) return;
     if (!data) return;

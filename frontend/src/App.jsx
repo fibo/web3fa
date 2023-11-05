@@ -22,6 +22,7 @@ import { Connect } from "./components/Connect.jsx";
 import { MasterPassword } from "./components/MasterPassword.jsx";
 import { decryptData, encryptData } from "./crypto.js";
 
+
 export default function App() {
   const { isConnected } = useAccount();
   const [accounts, setAccounts] = useState([]);
