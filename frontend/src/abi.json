@@ -1,4 +1,5 @@
-{
+[
+  {
     "inputs": [
       { "internalType": "address", "name": "delegate", "type": "address" }
     ],
@@ -32,3 +33,4 @@
     "stateMutability": "nonpayable",
     "type": "function"
   }
+]
