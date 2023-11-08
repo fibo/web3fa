@@ -15,6 +15,8 @@ To run demo locally, install deps (only once): `npm install`.
 
 Launch frontend: `npm run frontend`, then point your browser to http://localhost:8000
 
+https://github.com/fibo/web3fa/assets/176730/155e82ad-105d-46f3-a2a2-342708b49e62
+
 ## Relevant code
 
 Generates the 2FA _one time password_: [get2FA.js](./frontend/src/get2FA.js)
